@@ -78,7 +78,7 @@ userRoute.get("/gethistory",logger,async(req,res)=>{
         const decoded = jwt.verify(token,process.env.KEY);
         const userid = decoded.userid;
         let user_data = await UserModel.find({_id:userid});
-        res.status(200).send(user_data.history)
+        res.status(200).send(user_data)
     } catch (error) {
         res.status(400).send("Something went wrong")
     }
